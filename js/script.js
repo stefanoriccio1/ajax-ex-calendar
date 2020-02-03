@@ -26,21 +26,32 @@ $(document).ready(function(){
  var giorniNelMese = moment("2018-01", "YYYY-MM").daysInMonth();
  console.log(giorniNelMese);
 
- for (var i = 1; i < giorniNelMese.length; i++) {
+ for (var i = 1; i <= giorniNelMese; i++) {
    var giorni = i;
    console.log(giorni);
+
+   var source = $('#entry-template').html();
+   var template = Handlebars.compile(source);
+   var context = {
+    'giorno': giorni,
+    "data": "2018-01" + "-"+giorni
+   };
+   var html = template(context);
+
+   $('.mese').append(html);
+
  };
 
   function printData(festivita){
     for (var i = 0; i < festivita.length; i++) {
       var festivo = festivita[i];
-
-      var source = $('#entry-template').html();
-      var template = Handlebars.compile(source);
-      var context = {festivo};
-      var html = template(festivo);
-
-      $('.mese').append(html);
+      console.log(festivo.date);
+      // var source = $('#entry-template').html();
+      // var template = Handlebars.compile(source);
+      // var context = {festivo};
+      // var html = template(festivo);
+      //
+      // $('.mese').append(html);
     }
   }
 });
