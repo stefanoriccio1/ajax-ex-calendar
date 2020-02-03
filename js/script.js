@@ -14,6 +14,7 @@ $(document).ready(function(){
       url: "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
       method: "GET",
       success: function(data){
+        console.log($(this));
         printData(data.response);
       },
       error: function(request, state, errors){
@@ -23,5 +24,17 @@ $(document).ready(function(){
   );
   function printData(festivita){
     console.log(festivita);
+    console.log(festivita[0].name + ' ' + festivita[0].date);
+    for (var i = 0; i < festivita.length; i++) {
+      var festivo = festivita[i];
+      console.log(festivo);
+
+      var source = $('#entry-template').html();
+      var template = Handlebars.compile(source);
+      var context = {festivo};
+      var html = template(festivo);
+
+      $('.mese').append(html);
+    }
   }
 });
