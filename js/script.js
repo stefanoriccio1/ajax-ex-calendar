@@ -36,22 +36,25 @@ $(document).ready(function(){
     'giorno': giorni,
     "data": "2018-01" + "-"+giorni
    };
+   console.log(context.data);
    var html = template(context);
 
    $('.mese').append(html);
 
  };
 
-  function printData(festivita){
+  function printData(festivita, context){
+    var festivo = festivita[i];
     for (var i = 0; i < festivita.length; i++) {
       var festivo = festivita[i];
-      console.log(festivo.date);
-      // var source = $('#entry-template').html();
-      // var template = Handlebars.compile(source);
-      // var context = {festivo};
-      // var html = template(festivo);
-      //
-      // $('.mese').append(html);
+      console.log(festivo);
+      if(festivo.date == context.data){
+      var source = $('#entry-template').html();
+      var template = Handlebars.compile(source);
+      var context = {festivo};
+      var html = template(festivo);
+
+      $('.mese').append(html);}
     }
   }
 });
