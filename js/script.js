@@ -22,6 +22,8 @@ $(document).ready(function(){
       }
     }
   );
+
+console.log(moment().format('dddd'));
   function printData(festivita){
     console.log(festivita);
     console.log(festivita[0].name + ' ' + festivita[0].date);
