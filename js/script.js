@@ -22,10 +22,14 @@ $(document).ready(function(){
       }
     }
   );
- var giorniNelMese = moment("2018-01", "YYYY-MM").daysInMonth()
- var mesi = moment.months('1000');
- console.log(mesi);
+
+ var giorniNelMese = moment("2018-01", "YYYY-MM").daysInMonth();
  console.log(giorniNelMese);
+var giorni = 0
+ for (var i = 0; i < giorniNelMese.length; i++) {
+   var i = 0;
+   console.log(giorni);
+ };
 
   function printData(festivita){
     for (var i = 0; i < festivita.length; i++) {
