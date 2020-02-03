@@ -25,9 +25,9 @@ $(document).ready(function(){
 
  var giorniNelMese = moment("2018-01", "YYYY-MM").daysInMonth();
  console.log(giorniNelMese);
-var giorni = 0
- for (var i = 0; i < giorniNelMese.length; i++) {
-   var i = 0;
+
+ for (var i = 1; i < giorniNelMese.length; i++) {
+   var giorni = i;
    console.log(giorni);
  };
 
