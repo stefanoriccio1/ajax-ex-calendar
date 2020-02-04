@@ -11,7 +11,7 @@ var baseMonth = moment({
   month: currentMonth,
 })
 
-console.log(baseMonth.format('YYYY-MM-DD'));
+console.log(baseMonth.format('YYYY-MM'));
 
 for (var i = 1; i <= 31; i++) {
   console.log(i);
@@ -20,7 +20,7 @@ for (var i = 1; i <= 31; i++) {
   var context = {
     day: i,
     month: baseMonth.format('MMMM'),
-    dateComplete:baseMonth.format('YYYY-MM-DD')
+    dateComplete:baseMonth.format('YYYY-MM') + "-" + addZero(i)
   };
   var html = template(context);
 
@@ -41,4 +41,13 @@ for (var i = 1; i <= 31; i++) {
 //         }
 //     ]
 // }
+
+// FUNCTIONS--------------------->
+
+function addZero(num){
+  if(num < 10){
+    return "0"+ num;
+  }
+  return num;
+}
 });
