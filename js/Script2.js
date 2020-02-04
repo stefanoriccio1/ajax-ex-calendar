@@ -17,10 +17,22 @@ printHoliday(baseMonth);
 
 $('#next').click(function(){
   // andare avanti di un mese e richiamare le funzioni di printing
-moment(currentMonth).add(1, 'months');
+  var thisMonth= $('h2').attr('date-current-month');
+  var date = moment(thisMonth).add(1,'months');
+  console.log(date);
+  $('.days').text('');
+  printMonth(date);
+  printHoliday(date);
 });
 $('#prev').click(function(){
 // andare indietro di un mese e richiamare le funzioni di printing
+var thisMonth= $('h2').attr('date-current-month');
+var date = moment(thisMonth).subtract(1,'months');
+console.log(date);
+$('.days').text('');
+
+printMonth(date);
+printHoliday(date);
 });
 
 // risposta Ajax:
