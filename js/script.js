@@ -39,14 +39,15 @@ $(document).ready(function(){
       var context = {festivo};
       var html = template(festivo);
 
+      $('.mese').append(html);
        // test
        $( "li" ).each(function() {
-         if ($("li:contains(festivo.name)")){
-           $('.mese').append(html);
+         if ($(this).val() == festivo.name){
+           $(this).addClass('red');
          }
        });
        // test
-      
+
     }
   }
 
