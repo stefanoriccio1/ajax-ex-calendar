@@ -2,22 +2,30 @@ $(document).ready(function(){
 
 // alert('ciao');
 
-// inizio facendo inserimento dei giorni su html
+// inizio facendo inserimento dei giorni su html usando un ciclo
 
-var currentMonth = "January";
+var currentMonth = 0;
+var year = 2018
+var baseMonth = moment({
+  year: year,
+  month: currentMonth,
+})
 
-for (var i = 1; i <= 31; i++) {
-  console.log(i);
-  var source = $('#entry-template').html();
-  var template = Handlebars.compile(source);
-  var context = {
-    day: i,
-    month: currentMonth
-  };
-  var html = template(context);
+console.log(baseMonth);
 
-  $('.days').append(html);
-}
+// for (var i = 1; i <= 31; i++) {
+//   console.log(i);
+//   var source = $('#entry-template').html();
+//   var template = Handlebars.compile(source);
+//   var context = {
+//     day: i,
+//     month: currentMonth,
+//     dateComplete:
+//   };
+//   var html = template(context);
+//
+//   $('.days').append(html);
+// }
 
 // risposta Ajax:
 // {
