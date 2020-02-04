@@ -4,15 +4,24 @@ $(document).ready(function(){
 
 // inizio facendo inserimento dei giorni su html usando un ciclo
 
-var currentMonth = 2;
-var year = 2018
+var currentMonth = 0;
+console.log(currentMonth);
+var year = 2018;
 var baseMonth = moment({
   year: year,
   month: currentMonth,
-})
+});
 
 printMonth(baseMonth);
 printHoliday(baseMonth);
+
+$('#next').click(function(){
+  // andare avanti di un mese e richiamare le funzioni di printing
+moment(currentMonth).add(1, 'months');
+});
+$('#prev').click(function(){
+// andare indietro di un mese e richiamare le funzioni di printing
+});
 
 // risposta Ajax:
 // {
@@ -32,6 +41,10 @@ printHoliday(baseMonth);
 // FUNCTIONS--------------------->
 
 function printMonth(month){
+  // aggiungo all'h2 il nome del mese
+$('h2').text(month.format('MMMM-YYYY'));
+// aggiungo all'h2 un attributo, così da poter poi aggiungere un mese e cambiare di mese al click
+$('h2').attr('date-current-month', month.format('YYYY-MM'))
 
   for (var i = 1; i <= 31; i++) {
     var source = $('#entry-template').html();
