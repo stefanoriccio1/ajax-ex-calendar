@@ -62,7 +62,8 @@ $.ajax({
     $(".day").each(function() {
     if ($(this).attr('data-date-complete')== holidays[i].date) {
       $(this).addClass('red');
-    };
+      $(this).find('.holiday_name').append(holidays[i].name);
+    }
   });
 };
 
