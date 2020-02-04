@@ -57,12 +57,14 @@ $.ajax({
   },
   success: function(data){
    var holidays = data.response;
-   console.log(holidays);
-   $(".day").each(function() {
-   if ($(this).attr()==data.response){
-     $(this).addClass('.red');
-   }
-});
+
+  for (var i = 0; i < holidays.length; i++) {
+    $(".day").each(function() {
+    if ($(this).attr('data-date-complete')== holidays[i].date) {
+      $(this).addClass('red');
+    };
+  });
+};
 
   },
   error: function(request, state, errors){
