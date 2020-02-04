@@ -11,21 +11,21 @@ var baseMonth = moment({
   month: currentMonth,
 })
 
-console.log(baseMonth);
+console.log(baseMonth.format('YYYY-MM-DD'));
 
-// for (var i = 1; i <= 31; i++) {
-//   console.log(i);
-//   var source = $('#entry-template').html();
-//   var template = Handlebars.compile(source);
-//   var context = {
-//     day: i,
-//     month: currentMonth,
-//     dateComplete:
-//   };
-//   var html = template(context);
-//
-//   $('.days').append(html);
-// }
+for (var i = 1; i <= 31; i++) {
+  console.log(i);
+  var source = $('#entry-template').html();
+  var template = Handlebars.compile(source);
+  var context = {
+    day: i,
+    month: baseMonth.format('MMMM'),
+    dateComplete:baseMonth.format('YYYY-MM-DD')
+  };
+  var html = template(context);
+
+  $('.days').append(html);
+}
 
 // risposta Ajax:
 // {
