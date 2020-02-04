@@ -5,16 +5,18 @@ $(document).ready(function(){
 // inizio facendo inserimento dei giorni su html
 
 var currentMonth = "January";
-var days = 31;
-for (var i = 1; i <= days; i++) {
-  var day = i;
-  console.log(day);
+
+for (var i = 1; i <= 31; i++) {
+  console.log(i);
   var source = $('#entry-template').html();
   var template = Handlebars.compile(source);
-  var context = {day};
+  var context = {
+    day: i,
+    month: currentMonth
+  };
   var html = template(context);
 
-  $('.current').append(html);
+  $('.days').append(html);
 }
 
 // risposta Ajax:
