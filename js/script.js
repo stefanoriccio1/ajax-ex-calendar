@@ -42,7 +42,7 @@ $(document).ready(function(){
       $('.mese').append(html);
        // test
        $( "li" ).each(function() {
-         if ($(this).val() == festivo.name){
+         if ($(this).attr() == festivo.name){
            $(this).addClass('red');
          }
        });
