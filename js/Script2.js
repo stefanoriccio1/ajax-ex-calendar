@@ -55,7 +55,8 @@ $.ajax({
     month: month.month(),
     year: month.year()
   },
-  success: function(){
+  success: function(data){
+   var holidays = data.response;
 
   },
   error: function(request, state, errors){
