@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 // inizio facendo inserimento dei giorni su html usando un ciclo
 
-var currentMonth = 0;
+var currentMonth = 2;
 var year = 2018
 var baseMonth = moment({
   year: year,
