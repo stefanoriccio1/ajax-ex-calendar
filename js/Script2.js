@@ -11,21 +11,8 @@ var baseMonth = moment({
   month: currentMonth,
 })
 
-console.log(baseMonth.format('YYYY-MM'));
-
-for (var i = 1; i <= 31; i++) {
-  console.log(i);
-  var source = $('#entry-template').html();
-  var template = Handlebars.compile(source);
-  var context = {
-    day: i,
-    month: baseMonth.format('MMMM'),
-    dateComplete:baseMonth.format('YYYY-MM') + "-" + addZero(i)
-  };
-  var html = template(context);
-
-  $('.days').append(html);
-}
+printMonth(baseMonth);
+printHoliday(baseMonth);
 
 // risposta Ajax:
 // {
@@ -43,6 +30,39 @@ for (var i = 1; i <= 31; i++) {
 // }
 
 // FUNCTIONS--------------------->
+
+function printMonth(month){
+
+  for (var i = 1; i <= 31; i++) {
+    var source = $('#entry-template').html();
+    var template = Handlebars.compile(source);
+    var context = {
+      day: i,
+      month: month.format('MMMM'),
+      dateComplete:month.format('YYYY-MM') + "-" + addZero(i)
+    };
+    var html = template(context);
+
+    $('.days').append(html);
+  }
+};
+
+function printHoliday(month){
+$.ajax({
+  url: "https://flynn.boolean.careers/exercises/api/holidays",
+  method: "GET",
+  data:{
+    month: month.month(),
+    year: month.year()
+  },
+  success: function(){
+
+  },
+  error: function(request, state, errors){
+    alert('Si è verificato un error' + errors)
+  }
+})
+};
 
 function addZero(num){
   if(num < 10){
