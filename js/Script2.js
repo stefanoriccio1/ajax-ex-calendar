@@ -57,6 +57,12 @@ $.ajax({
   },
   success: function(data){
    var holidays = data.response;
+   console.log(holidays);
+   $(".day").each(function() {
+   if ($(this).attr()==data.response){
+     $(this).addClass('.red');
+   }
+});
 
   },
   error: function(request, state, errors){
