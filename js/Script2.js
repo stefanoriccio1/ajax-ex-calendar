@@ -58,7 +58,11 @@ $('h2').text(month.format('MMMM-YYYY'));
 // aggiungo all'h2 un attributo, così da poter poi aggiungere un mese e cambiare di mese al click
 $('h2').attr('date-current-month', month.format('YYYY-MM'))
 
-  for (var i = 1; i <= 31; i++) {
+// creo una var daysinmonth, così da far capire alla funzione quanti giorni ha il mese che gli passo
+  var daysInMonth = month.daysInMonth();
+  console.log(daysInMonth);
+
+  for (var i = 1; i <= daysInMonth; i++) {
     var source = $('#entry-template').html();
     var template = Handlebars.compile(source);
     var context = {
