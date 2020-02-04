@@ -2,12 +2,19 @@ $(document).ready(function(){
 
 // alert('ciao');
 
-// inizio facendo inserimento dei giorni manuale su html
+// inizio facendo inserimento dei giorni su html
 
 var currentMonth = "January";
 var days = 31;
 for (var i = 1; i <= days; i++) {
-  console.log(i);
+  var day = i;
+  console.log(day);
+  var source = $('#entry-template').html();
+  var template = Handlebars.compile(source);
+  var context = {day};
+  var html = template(context);
+
+  $('.current').append(html);
 }
 
 // risposta Ajax:
